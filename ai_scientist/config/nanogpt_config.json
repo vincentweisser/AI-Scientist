@@ -1,0 +1,41 @@
+{
+    "n_layer": 12,
+    "n_head": 6,
+    "n_embd": 768,
+    "block_size": 128,
+    "batch_size": 8,
+    "optimizer": {
+        "type": "muon",
+        "learning_rate": 5e-4,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "weight_decay": 0.1,
+        "grad_clip": 1.0,
+        "newton_schulz_iters": 2,
+        "momentum": true,
+        "nesterov": true,
+        "bfloat16": true
+    },
+    "training": {
+        "max_iters": 2000,
+        "warmup_iters": 100,
+        "lr_decay_iters": 2000,
+        "min_lr": 1e-5,
+        "decay_lr": true,
+        "dropout": 0.0,
+        "compile": true
+    },
+    "architecture": {
+        "rope_max_seq_len": 65536,
+        "rope_decay": true,
+        "remove_8th_attention": true,
+        "value_embedding_pattern": [0, 1, 2, null, null, null, null, null, null, 0, 1, 2],
+        "skip_connection_weights": true,
+        "flex_attention": {
+            "enabled": true,
+            "min_block_size": 64,
+            "max_block_size": 1792,
+            "dynamic_scaling": true
+        }
+    }
+}
